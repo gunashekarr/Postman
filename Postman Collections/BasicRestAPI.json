@@ -7,6 +7,20 @@
 	"item": [
 		{
 			"name": "CreateCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "062d2f82-3f1e-4567-a6aa-b6727b74eb2a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "9787aa51-998a-488c-b02d-ddbd05df0656",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
