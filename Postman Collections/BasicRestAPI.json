@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "CreateCustomer",
 			"id": "9787aa51-998a-488c-b02d-ddbd05df0656",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
