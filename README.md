@@ -35,7 +35,7 @@ If you have any feedback, please reach out to us at gunashekarr11@gmail.com
 Import the Collection
 
 ```bash
-  Collection : https://elements.getpostman.com/redirect?entityId=16105069-8d3ac349-f69d-40b6-abe8-6a8a06753705&entityType=collection
+  Collection : https://www.postman.com/qafactory/workspace/18fc2cf7-2af5-4c4a-bcbd-dec98de6fbc6/collection/16105069-8d3ac349-f69d-40b6-abe8-6a8a06753705
 ```
 ```bash
   Run the collection through Postman Runner
