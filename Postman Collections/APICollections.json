@@ -1,0 +1,900 @@
+{
+	"info": {
+		"_postman_id": "8d3ac349-f69d-40b6-abe8-6a8a06753705",
+		"name": "QaFactoryAPICollections",
+		"description": "This Collection consists of major concepts of API testing.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OrderofExecution",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "366ada2c-6702-46f6-853a-7cd8b8d039d3",
+								"exec": [
+									"console.log(\"Test Level Pre-Request Script\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f86b95e-4254-4aba-9626-e5a36b55206a",
+								"exec": [
+									"console.log(\"Test Level Test-Request Script\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "9084dfff-c5a3-442d-b834-726b07fdd8f5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://reqres.in/api/login"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "509e9cd4-256e-4e8e-a45e-6f46c2a14257",
+			"description": "Order of execution is nothing but flow of requests executing in the collection.\n\n**Flow** : Pre-Requests Request Response Tests\n\n### **Sample**\n\n<img src=\"https://content.pstmn.io/f17effe9-ebbf-4747-b80b-55c182274998/aW1hZ2UucG5n\" width=\"417\" height=\"283\">\n\n### **Why & when we to use**\n\nTo execute the requests in an required order flow.\n\n### **How to execute**\n\n1. **Method-1**  \n    a. In the request – go to tests tab  \n    b. Specific the request at bottom which need to be executed after this execution of this request.\n    \n\n#### **Scripts** :\n\npostman.setNextRequest(“ Request Name”)  \npostman.setNextRequest(Null)\n\n**2\\. Method-2**\n\nUsing Pre-request scripts",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2807897e-a8cf-4a7b-81f0-04081a2e9366",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"Folder Level Pre-Request Script\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c42b62e7-38fb-4ecd-949b-76a629c954a3",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"Folder Level Test-Request Script\");"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Variables",
+			"item": [
+				{
+					"name": "CreateCustomer",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9025c5e4-703f-416b-af12-64972fa547f1",
+								"exec": [
+									"//Local Variables\r",
+									"pm.variables.set(\"loc_url\",\"https://dummy.restapiexample.com\");\r",
+									"\r",
+									"//Global Variables\r",
+									"pm.globals.set(\"glo_url\",\"https://dummy.restapiexample.com\");\r",
+									"\r",
+									"//Environment Variables\r",
+									"pm.environment.set(\"QA\",\"1\");\r",
+									"\r",
+									"//Collection Variables\r",
+									"pm.collectionVariables.set(\"col_url\",\"https://dummy.restapiexample.com\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "9e8fec68-c1db-4635-977e-a1ec5091b963",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//Global Variables\r",
+									"pm.globals.unset(\"glo_url\");\r",
+									"\r",
+									"//Environment Variables\r",
+									"pm.environment.set(\"QA\");\r",
+									"\r",
+									"//Collection Variables\r",
+									"pm.collectionVariables.set(\"col_url\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "22ca252c-fc3f-4bc9-990e-d48aecd8fde4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"QaFactory\",\r\n    \"salary\": \"100000\",\r\n    \"age\": \"21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{glo_url}}/api/v1/create"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "f4db48bb-88e9-4af3-b7c3-a5189795e005",
+			"description": "A **variable in the Postman is same as in any programming language. A variable is an entity whose value can be changed**. The key part in the key-value set in environment is called variable. This variable can have any value and in place of the key we can use the variable name in every request.\n\n### When & Why we use variable concepts\n\nIn Real-time, key values will be dynamic . To manage the dynamic data in easy & quick way variables will help us.\n\n### Types of variable\n\n1. Environment\n2. Global\n3. Collection\n4. Local\n5. Data\n    \n\n1. **Environment** : Accessible in all the collections, but we need to switch tp particular environment.\n2. **Global** : Accessible in worspace.\n3. **Collection** : Accessible only within collection.\n4. **Local** : Accessible only within request.\n5. **Data** : External files csv/text..etc\n    \n\n### How to Create a variables\n\n1. Through options provided in Postman tool\n2. Through scripts in pre-request or test scripts"
+		},
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "BasicAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5cbc9723-45e8-4c83-beb7-4dfe745e18b2",
+								"exec": [
+									"tests[\"Validate the status code\"]= responseCode.code==200;\r",
+									"\r",
+									"tests[\"Validate the Message\"] = responseBody.has(\"authenticated\");\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "543d5009-83cb-469a-b309-e63f228248fa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "password",
+								"username": "postman"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://postman-echo.com/basic-auth"
+					},
+					"response": []
+				},
+				{
+					"name": "API_Key",
+					"_postman_id": "a25c73eb-8751-42d7-bb57-2b065fd35442",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"key": "appid",
+								"value": "fe9c5cddb701d747b4611c3fc9eaf2c",
+								"in": "query"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "api.openweathermap.org/data/2.5/forecast/daily/daily?q=Delhi?cnt=1",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"forecast",
+								"daily",
+								"daily"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Delhi?cnt=1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "8e8a3788-d217-4b2a-8eb3-79c7f7dfc82a",
+			"description": "In Postman, authorization is done to verify the eligibility of a user to access a resource in the server. There could be multiple APIs in a project, but their access can be restricted only for certain authorized users.\n\nThe process of authorization is applied for the APIs which are required to be secured. This authorization is done for identification and to verify, if the user is entitled to access a server resource.\n\nThis is done within the Authorization tab in Postman\n\n### **Types of Authorization in Postman**\n\n1. No Auth\n2. API Key\n3. Bearer Token\n4. Basic Auth\n5. Digest Auth\n6. OAuth 1.0\n7. OAuth 2.0\n8. Hawk Authentication\n9. AWS Signature\n10. NTLM Authentication\n11. Akamal EdgeGrid\n    \n\n1. **No Auth**  \n    If you select this type, Postman will not send any auth data with the request.\n2. **API key**  \n    This is to send the Key and Value along with the API request.\n3. **Bearer Token**  \n    This auth type allows the Authorization of requests by using an access key.\n4. **Basic Auth**  \n    This allows users to send username and password along with the request for API login.\n5. **Digest Auth**  \n    This is the two-point authentication of your API request. In this auth type user will send a request where the server will reply with a number that can only be used once. Then the user again will send the request along with username, password, and that realm number for Authorization of the request.\n6. **OAuth**  \n    This auth type is to access third-party API data.\n7. **Hawk Authentication**  \n    This enables users to use partial cryptographic verification to authenticate their requests. Hawk Auth id, which is your API authentication ID value and Hawk Auth key, which is your API authentication key value, is required for Authorization under this auth type.\n8. **AWS Signature**  \n    For Amazon Web Services requests, this auth type is used.\n9. **NTLM Authentication (Beta)**  \n    This is the auth type for windows OS and standalone systems.\n10. **Akamai EdgeGrid**  \n    Akamai technologies use this auth type for authorizing requests."
+		},
+		{
+			"name": "Chaining",
+			"item": [
+				{
+					"name": "ListUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "47cd4fd5-1777-4fb8-8c91-993cbb5dbf3d",
+								"exec": [
+									"jsonData=JSON.parse(responseBody)\r",
+									"value=jsonData.data[1].first_name\r",
+									"\r",
+									"console.log(value);\r",
+									"\r",
+									"pm.environment.set(\"usernamee\", value);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "53d96c61-6192-4e3a-941b-f1a9d1159921",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://reqres.in/api/users?page=2",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bf406977-75bd-4de5-aae6-a4c7021b5165",
+								"exec": [
+									"var responsedata=JSON.parse(responseBody);\r",
+									"\r",
+									"tests[\"Validate the Username\"] = responsedata.name=='Lindsay';\r",
+									"\r",
+									"tests[\"Validating Response Body\"] = responseBody.has(\"Lindsay\");\r",
+									"\r",
+									"console.log(responsedata.name)\r",
+									"\r",
+									"pm.environment.unset(\"usernamee\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "9b139091-9403-47dd-ac5e-cd47d4e0dff6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{usernamee}}\",\r\n    \"job\": \"zion resident\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://reqres.in/api/users/2"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "7199810a-3130-4a3c-88af-325d5ae3b310",
+			"description": "StartFragment\n\nVariables in Postman are great, but they aren’t a universal tool for fixing every cumbersome thing.  \nFor example, when using one of the Vonage APIs that authenticates using JWTs, you’ll need to generate that JWT before making your request. To generate the JWT, you’ll need an application ID and a private key, both of which you’ll get once you create a Vonage Application. That amounts to three separate requests one would have to make, which can confuse someone exploring the API for the first time.\n\nFortunately, there’s a workaround for multi-step prerequisites as well: chaining requests.  \nPostman offers two scripting areas, **Pre-Request Script** and **Tests**, where you can write any JavaScript code you’d like-yes, including making another HTTP request as well.\n\nEndFragmen"
+		},
+		{
+			"name": "Json Schema Validation",
+			"item": [
+				{
+					"name": "Json Schema Validation Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "cd1a5d5b-6f17-477b-9eb8-a8a40813f372",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fd16b373-ceb5-49b8-8d88-29566482e4da",
+								"exec": [
+									"var schema = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-06/schema\",\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"title\": \"The root schema\",\r",
+									"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+									"    \"default\": {},\r",
+									"    \"examples\": [\r",
+									"        {\r",
+									"            \"data\": {\r",
+									"                \"id\": 2,\r",
+									"                \"email\": \"janet.weaver@reqres.in\",\r",
+									"                \"first_name\": \"Janet\",\r",
+									"                \"last_name\": \"Weaver\",\r",
+									"                \"avatar\": \"https://reqres.in/img/faces/2-image.jpg\"\r",
+									"            },\r",
+									"            \"support\": {\r",
+									"                \"url\": \"https://reqres.in/#support-heading\",\r",
+									"                \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\r",
+									"            }\r",
+									"        }\r",
+									"    ],\r",
+									"    \"required\": [\r",
+									"        \"data\",\r",
+									"        \"support\"\r",
+									"    ],\r",
+									"    \"properties\": {\r",
+									"        \"data\": {\r",
+									"            \"$id\": \"#/properties/data\",\r",
+									"            \"type\": \"object\",\r",
+									"            \"title\": \"The data schema\",\r",
+									"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"            \"default\": {},\r",
+									"            \"examples\": [\r",
+									"                {\r",
+									"                    \"id\": 2,\r",
+									"                    \"email\": \"janet.weaver@reqres.in\",\r",
+									"                    \"first_name\": \"Janet\",\r",
+									"                    \"last_name\": \"Weaver\",\r",
+									"                    \"avatar\": \"https://reqres.in/img/faces/2-image.jpg\"\r",
+									"                }\r",
+									"            ],\r",
+									"            \"required\": [\r",
+									"                \"id\",\r",
+									"                \"email\",\r",
+									"                \"first_name\",\r",
+									"                \"last_name\",\r",
+									"                \"avatar\"\r",
+									"            ],\r",
+									"            \"properties\": {\r",
+									"                \"id\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/id\",\r",
+									"                    \"type\": \"integer\",\r",
+									"                    \"title\": \"The id schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": 0,\r",
+									"                    \"examples\": [\r",
+									"                        2\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"email\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/email\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The email schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"janet.weaver@reqres.in\"\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"first_name\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/first_name\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The first_name schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"Janet\"\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"last_name\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/last_name\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The last_name schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"Weaver\"\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"avatar\": {\r",
+									"                    \"$id\": \"#/properties/data/properties/avatar\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The avatar schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"https://reqres.in/img/faces/2-image.jpg\"\r",
+									"                    ]\r",
+									"                }\r",
+									"            },\r",
+									"            \"additionalProperties\": true\r",
+									"        },\r",
+									"        \"support\": {\r",
+									"            \"$id\": \"#/properties/support\",\r",
+									"            \"type\": \"object\",\r",
+									"            \"title\": \"The support schema\",\r",
+									"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"            \"default\": {},\r",
+									"            \"examples\": [\r",
+									"                {\r",
+									"                    \"url\": \"https://reqres.in/#support-heading\",\r",
+									"                    \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\r",
+									"                }\r",
+									"            ],\r",
+									"            \"required\": [\r",
+									"                \"url\",\r",
+									"                \"text\"\r",
+									"            ],\r",
+									"            \"properties\": {\r",
+									"                \"url\": {\r",
+									"                    \"$id\": \"#/properties/support/properties/url\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The url schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"https://reqres.in/#support-heading\"\r",
+									"                    ]\r",
+									"                },\r",
+									"                \"text\": {\r",
+									"                    \"$id\": \"#/properties/support/properties/text\",\r",
+									"                    \"type\": \"string\",\r",
+									"                    \"title\": \"The text schema\",\r",
+									"                    \"description\": \"An explanation about the purpose of this instance.\",\r",
+									"                    \"default\": \"\",\r",
+									"                    \"examples\": [\r",
+									"                        \"To keep ReqRes free, contributions towards server costs are appreciated!\"\r",
+									"                    ]\r",
+									"                }\r",
+									"            },\r",
+									"            \"additionalProperties\": true\r",
+									"        }\r",
+									"    },\r",
+									"    \"additionalProperties\": true\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema Validation\", function()\r",
+									"{\r",
+									"   var result=tv4.validateResult(pm.response.json(),schema);\r",
+									"\r",
+									"    if(!result.valid){\r",
+									"        console.log(result);\r",
+									"    }\r",
+									" \r",
+									"    pm.expect(result.valid).to.be.true;\r",
+									"\r",
+									"}\r",
+									");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "1beecc3b-f9a2-4629-bec2-45ef2901ba4a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://reqres.in/api/users/2"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "a12c2018-6feb-45b7-870f-c7c806015be1",
+			"description": "StartFragment\n\nJSON Schema is a specification for defining the structure of JSON data i.e. JSON request body and response in case of APIs. Basically, JSON schema defines various keys and their values and certain constraints on the values.\n\nThe various important keywords that are used in the JSON schema are as follows:\n\n1. type\n2. rroperties\n3. required\n4. minimum\n5. maximum\n6. maxItems\n7. minItems\n8. maxLength\n9. StartFragmentminLength\n10. StartFragmentpattern\n11. StartFragmentadditionalProperties\n    EndFragment  \n      \n    \n\n  \n\nEndFragment"
+		},
+		{
+			"name": "DataDriven",
+			"item": [
+				{
+					"name": "Create_employee_runner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58971bdc-5c68-46a4-83f1-1dd61746fe3d",
+								"exec": [
+									"tests[\"Validating the success code\"]=responseCode.code == '200';"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "4f347b18-f749-4dd5-bd77-14c97ecd2534",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     “name” : \"{{name}}\",\r\n     “salary” : \"{{salary}}\",\r\n     “age” : \"{{age}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dummy.restapiexample.com/api/v1/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58971bdc-5c68-46a4-83f1-1dd61746fe3d",
+								"exec": [
+									"tests[\"Validating the success code\"]=responseCode.code == '200';"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c2917809-ce5b-4518-97e8-bfd6f02b8a38",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"name\" : \"Test001\",\r\n     \"salary\" : \"100000\",\r\n     \"age\" : \"30\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dummy.restapiexample.com/api/v1/create"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "534bac49-26dc-49c7-a976-2bc388974f4c",
+			"description": "StartFragment\n\n**“Data-Driven Testing in Postman”** is when we have one test that we run multiple times with different data variables.\n\n**Data-driven Testing** is nothing but getting testing data from a different file. Data can be stored in different data storage applications such as Excel, notepad, Word pad, etc. Data is not generally stored in a single format but in different formats.\n\n**Data-driven testing** can be done in two different ways.\n\n1)Use the data from a file.\n\n2)Use the data from a different request-response.\n\nThe data stored in the file can be used for different applications such as CSV, JSON, HTML, etc. To get the data from a different file, first, we have to create variables and then the data stored in the file can be referred to.\n\nEndFragment"
+		},
+		{
+			"name": "E2E",
+			"item": [
+				{
+					"name": "GetAllEmployess Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fcdf50bb-402c-46fb-b755-8b58912a8922",
+								"exec": [
+									"tests[\"Validate the Status Code\"]=responseCode.code==200;\r",
+									"\r",
+									"tests[\"Validate the Success Status\"]=responseBody.has(\"success\");\r",
+									"\r",
+									"var response=JSON.parse(responseBody);\r",
+									"tests[\"Validate the Response name\"]=response.data[0].employee_name==\"Tiger Nixon\";\r",
+									"tests[\"Validate the Response salary\"]=response.data[0].employee_salary==\"320800\";\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "01609148-9388-4e6b-b588-4bd8c5d4ea83",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "00144a46-7c55-41e1-8d8c-3d5d035ed593",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{app_url}}/api/v1/employees"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEmployee Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "05628004-ae7f-4800-a363-9454d77545b5",
+								"exec": [
+									"//  pm.test(\"Validate the Status Code-Snipet\", function () {\r",
+									"//     pm.response.to.have.status(200);\r",
+									"// });\r",
+									"\r",
+									"tests[\"Validate the Status Code\"]=responseCode.code==200;\r",
+									"\r",
+									"tests[\"Validate the Success Status\"]=responseBody.has(\"success\");\r",
+									"\r",
+									"var response=JSON.parse(responseBody);\r",
+									"tests[\"Validate the Response name\"]=response.data.name==\"KGF\";\r",
+									"\r",
+									"var response=JSON.parse(responseBody);\r",
+									"tests[\"Validate the Response age\"]=response.data.age==\"30\";\r",
+									"\r",
+									"// jsonData=JSON.parse(responseBody)\r",
+									"value=response.data.id\r",
+									"\r",
+									"console.log(value);\r",
+									"\r",
+									"pm.variables.set(\"usr_id\", value);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f0bdf31b-49df-4257-a377-77c097dd1c47",
+								"exec": [
+									"pm.variables.set(\"usn\", \"nagaarjuna\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "7a695169-2f16-451c-bf0d-60d2a5d7b426",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"KGF\",\r\n    \"salary\":\"1000\",\r\n    \"age\":\"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{app_url}}/api/v1/create"
+					},
+					"response": []
+				},
+				{
+					"name": "GetEmployee Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "230c6d1c-7148-4f46-9768-c6be3758fa8d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// pm.test(\"Your test name\", function () {\r",
+									"//     var jsonData = pm.response.json();\r",
+									"//     pm.expect(jsonData.value).to.eql(100);\r",
+									"// });\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"var jsonObject = xml2Json(responseBody);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "41ac9e44-678d-4491-9906-2c5a3ff01025",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{app_url}}/api/v1/employee/{{usr_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateEmployee Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4f7e885-7870-41b6-b94c-102989066c09",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response=JSON.parse(responseBody);\r",
+									"tests[\"Validate the Response name\"]=response.data.name==\"QaFactory11\";"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "805b3223-2d3a-4fec-889b-35ea3339d2ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"QaFactory11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{app_url}}/api/v1/update/{{usr_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEmployee Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "670ed23e-633e-4e32-8300-f225f5a50dd5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.collectionVariables.unset(\"usr_id\");\r",
+									"pm.collectionVariables.unset(\"app_url\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "11b7852d-3cba-4d54-bfcd-893fdc7e4bde",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{app_url}}/api/v1/delete/{{usr_id}}"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "745daf24-a13b-4c84-a2fc-b02938c3c79d",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "699df07a-4926-4a56-a253-1147efa927aa",
+						"type": "text/javascript",
+						"exec": [
+							"pm.variables.set(\"app_url\",\"http://dummy.restapiexample.com\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b49d0829-8735-4ad3-8b12-11e52a01c7c0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "26807bbd-73b6-4db2-a847-e9680145a6f7",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"Collection Level Pre-Request Script\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9d7bd7de-7832-461e-8ab0-a2a77cc9b393",
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"Collection Level Test-Request Script\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "60ab6d7f-b510-4130-8b32-1a9f93136395",
+			"key": "cust_name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "c13caaba-36e2-461a-aa05-1b19c25e0c3b",
+			"key": "col_url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "d854dd3d-4124-4c91-bf13-814bb83304f1",
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
