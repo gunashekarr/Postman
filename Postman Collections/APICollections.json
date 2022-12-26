@@ -33,7 +33,7 @@
 							}
 						}
 					],
-					"_postman_id": "9084dfff-c5a3-442d-b834-726b07fdd8f5",
+					"id": "9084dfff-c5a3-442d-b834-726b07fdd8f5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -45,7 +45,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "509e9cd4-256e-4e8e-a45e-6f46c2a14257",
+			"id": "509e9cd4-256e-4e8e-a45e-6f46c2a14257",
 			"description": "Order of execution is nothing but flow of requests executing in the collection.\n\n**Flow** : Pre-Requests Request Response Tests\n\n### **Sample**\n\n<img src=\"https://content.pstmn.io/f17effe9-ebbf-4747-b80b-55c182274998/aW1hZ2UucG5n\" width=\"417\" height=\"283\">\n\n### **Why & when we to use**\n\nTo execute the requests in an required order flow.\n\n### **How to execute**\n\n1. **Method-1**  \n    a. In the request – go to tests tab  \n    b. Specific the request at bottom which need to be executed after this execution of this request.\n    \n\n#### **Scripts** :\n\npostman.setNextRequest(“ Request Name”)  \npostman.setNextRequest(Null)\n\n**2\\. Method-2**\n\nUsing Pre-request scripts",
 			"event": [
 				{
@@ -120,7 +120,7 @@
 							}
 						}
 					],
-					"_postman_id": "22ca252c-fc3f-4bc9-990e-d48aecd8fde4",
+					"id": "22ca252c-fc3f-4bc9-990e-d48aecd8fde4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -141,7 +141,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "f4db48bb-88e9-4af3-b7c3-a5189795e005",
+			"id": "f4db48bb-88e9-4af3-b7c3-a5189795e005",
 			"description": "A **variable in the Postman is same as in any programming language. A variable is an entity whose value can be changed**. The key part in the key-value set in environment is called variable. This variable can have any value and in place of the key we can use the variable name in every request.\n\n### When & Why we use variable concepts\n\nIn Real-time, key values will be dynamic . To manage the dynamic data in easy & quick way variables will help us.\n\n### Types of variable\n\n1. Environment\n2. Global\n3. Collection\n4. Local\n5. Data\n    \n\n1. **Environment** : Accessible in all the collections, but we need to switch tp particular environment.\n2. **Global** : Accessible in worspace.\n3. **Collection** : Accessible only within collection.\n4. **Local** : Accessible only within request.\n5. **Data** : External files csv/text..etc\n    \n\n### How to Create a variables\n\n1. Through options provided in Postman tool\n2. Through scripts in pre-request or test scripts"
 		},
 		{
@@ -167,7 +167,7 @@
 							}
 						}
 					],
-					"_postman_id": "543d5009-83cb-469a-b309-e63f228248fa",
+					"id": "543d5009-83cb-469a-b309-e63f228248fa",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -187,7 +187,7 @@
 				},
 				{
 					"name": "API_Key",
-					"_postman_id": "a25c73eb-8751-42d7-bb57-2b065fd35442",
+					"id": "a25c73eb-8751-42d7-bb57-2b065fd35442",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -227,7 +227,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "8e8a3788-d217-4b2a-8eb3-79c7f7dfc82a",
+			"id": "8e8a3788-d217-4b2a-8eb3-79c7f7dfc82a",
 			"description": "In Postman, authorization is done to verify the eligibility of a user to access a resource in the server. There could be multiple APIs in a project, but their access can be restricted only for certain authorized users.\n\nThe process of authorization is applied for the APIs which are required to be secured. This authorization is done for identification and to verify, if the user is entitled to access a server resource.\n\nThis is done within the Authorization tab in Postman\n\n### **Types of Authorization in Postman**\n\n1. No Auth\n2. API Key\n3. Bearer Token\n4. Basic Auth\n5. Digest Auth\n6. OAuth 1.0\n7. OAuth 2.0\n8. Hawk Authentication\n9. AWS Signature\n10. NTLM Authentication\n11. Akamal EdgeGrid\n    \n\n1. **No Auth**  \n    If you select this type, Postman will not send any auth data with the request.\n2. **API key**  \n    This is to send the Key and Value along with the API request.\n3. **Bearer Token**  \n    This auth type allows the Authorization of requests by using an access key.\n4. **Basic Auth**  \n    This allows users to send username and password along with the request for API login.\n5. **Digest Auth**  \n    This is the two-point authentication of your API request. In this auth type user will send a request where the server will reply with a number that can only be used once. Then the user again will send the request along with username, password, and that realm number for Authorization of the request.\n6. **OAuth**  \n    This auth type is to access third-party API data.\n7. **Hawk Authentication**  \n    This enables users to use partial cryptographic verification to authenticate their requests. Hawk Auth id, which is your API authentication ID value and Hawk Auth key, which is your API authentication key value, is required for Authorization under this auth type.\n8. **AWS Signature**  \n    For Amazon Web Services requests, this auth type is used.\n9. **NTLM Authentication (Beta)**  \n    This is the auth type for windows OS and standalone systems.\n10. **Akamai EdgeGrid**  \n    Akamai technologies use this auth type for authorizing requests."
 		},
 		{
@@ -257,7 +257,7 @@
 							}
 						}
 					],
-					"_postman_id": "53d96c61-6192-4e3a-941b-f1a9d1159921",
+					"id": "53d96c61-6192-4e3a-941b-f1a9d1159921",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -308,7 +308,7 @@
 							}
 						}
 					],
-					"_postman_id": "9b139091-9403-47dd-ac5e-cd47d4e0dff6",
+					"id": "9b139091-9403-47dd-ac5e-cd47d4e0dff6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -329,7 +329,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "7199810a-3130-4a3c-88af-325d5ae3b310",
+			"id": "7199810a-3130-4a3c-88af-325d5ae3b310",
 			"description": "StartFragment\n\nVariables in Postman are great, but they aren’t a universal tool for fixing every cumbersome thing.  \nFor example, when using one of the Vonage APIs that authenticates using JWTs, you’ll need to generate that JWT before making your request. To generate the JWT, you’ll need an application ID and a private key, both of which you’ll get once you create a Vonage Application. That amounts to three separate requests one would have to make, which can confuse someone exploring the API for the first time.\n\nFortunately, there’s a workaround for multi-step prerequisites as well: chaining requests.  \nPostman offers two scripting areas, **Pre-Request Script** and **Tests**, where you can write any JavaScript code you’d like-yes, including making another HTTP request as well.\n\nEndFragmen"
 		},
 		{
@@ -520,7 +520,7 @@
 							}
 						}
 					],
-					"_postman_id": "1beecc3b-f9a2-4629-bec2-45ef2901ba4a",
+					"id": "1beecc3b-f9a2-4629-bec2-45ef2901ba4a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -532,7 +532,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "a12c2018-6feb-45b7-870f-c7c806015be1",
+			"id": "a12c2018-6feb-45b7-870f-c7c806015be1",
 			"description": "StartFragment\n\nJSON Schema is a specification for defining the structure of JSON data i.e. JSON request body and response in case of APIs. Basically, JSON schema defines various keys and their values and certain constraints on the values.\n\nThe various important keywords that are used in the JSON schema are as follows:\n\n1. type\n2. rroperties\n3. required\n4. minimum\n5. maximum\n6. maxItems\n7. minItems\n8. maxLength\n9. StartFragmentminLength\n10. StartFragmentpattern\n11. StartFragmentadditionalProperties\n    EndFragment  \n      \n    \n\n  \n\nEndFragment"
 		},
 		{
@@ -552,7 +552,7 @@
 							}
 						}
 					],
-					"_postman_id": "4f347b18-f749-4dd5-bd77-14c97ecd2534",
+					"id": "4f347b18-f749-4dd5-bd77-14c97ecd2534",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -586,7 +586,7 @@
 							}
 						}
 					],
-					"_postman_id": "c2917809-ce5b-4518-97e8-bfd6f02b8a38",
+					"id": "c2917809-ce5b-4518-97e8-bfd6f02b8a38",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -607,7 +607,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "534bac49-26dc-49c7-a976-2bc388974f4c",
+			"id": "534bac49-26dc-49c7-a976-2bc388974f4c",
 			"description": "StartFragment\n\n**“Data-Driven Testing in Postman”** is when we have one test that we run multiple times with different data variables.\n\n**Data-driven Testing** is nothing but getting testing data from a different file. Data can be stored in different data storage applications such as Excel, notepad, Word pad, etc. Data is not generally stored in a single format but in different formats.\n\n**Data-driven testing** can be done in two different ways.\n\n1)Use the data from a file.\n\n2)Use the data from a different request-response.\n\nThe data stored in the file can be used for different applications such as CSV, JSON, HTML, etc. To get the data from a different file, first, we have to create variables and then the data stored in the file can be referred to.\n\nEndFragment"
 		},
 		{
@@ -645,7 +645,7 @@
 							}
 						}
 					],
-					"_postman_id": "00144a46-7c55-41e1-8d8c-3d5d035ed593",
+					"id": "00144a46-7c55-41e1-8d8c-3d5d035ed593",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -702,7 +702,7 @@
 							}
 						}
 					],
-					"_postman_id": "7a695169-2f16-451c-bf0d-60d2a5d7b426",
+					"id": "7a695169-2f16-451c-bf0d-60d2a5d7b426",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -749,7 +749,7 @@
 							}
 						}
 					],
-					"_postman_id": "41ac9e44-678d-4491-9906-2c5a3ff01025",
+					"id": "41ac9e44-678d-4491-9906-2c5a3ff01025",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -779,7 +779,7 @@
 							}
 						}
 					],
-					"_postman_id": "805b3223-2d3a-4fec-889b-35ea3339d2ae",
+					"id": "805b3223-2d3a-4fec-889b-35ea3339d2ae",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -818,7 +818,7 @@
 							}
 						}
 					],
-					"_postman_id": "11b7852d-3cba-4d54-bfcd-893fdc7e4bde",
+					"id": "11b7852d-3cba-4d54-bfcd-893fdc7e4bde",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -830,7 +830,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "745daf24-a13b-4c84-a2fc-b02938c3c79d",
+			"id": "745daf24-a13b-4c84-a2fc-b02938c3c79d",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -879,22 +879,19 @@
 	],
 	"variable": [
 		{
-			"id": "60ab6d7f-b510-4130-8b32-1a9f93136395",
+			"id": "403df168-cd28-4418-b4bc-86a5d29bca72",
 			"key": "cust_name",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "c13caaba-36e2-461a-aa05-1b19c25e0c3b",
+			"id": "c0efc77e-364c-485e-a3ec-9422fc8a0e95",
 			"key": "col_url",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "d854dd3d-4124-4c91-bf13-814bb83304f1",
+			"id": "1261504b-67cd-4072-89e3-ae19ae3fe46d",
 			"key": "url",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }
